@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart - NEWLY SLY</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Your Cart</h1>
+<div id="cart-items"></div>
+<h2 id="total"></h2>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let container = document.getElementById("cart-items");
+let total = 0;
+
+cart.forEach(item => {
+    container.innerHTML += `<p>${item.name} - R${item.price}</p>`;
+    total += item.price;
+});
+
+document.getElementById("total").innerText = "Total: R" + total;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #0f0f1b;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    position: fixed;
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #00f5d4;
+}
+
+/* HERO */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085") no-repeat center center/cover;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #00f5d4;
+    transform: scale(1.05);
+}
+
+/* SERVICES */
+
+.services {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+.service-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-card {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    background: #222244;
+}
+
+/* PORTFOLIO */
+
+.portfolio {
+    padding: 100px 8%;
+    text-align: center;
+    background: #111122;
+}
+
+.portfolio-grid {
+    display: flex;
+    gap: 30px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.portfolio-card {
+    background: #1f1f3a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+.portfolio-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #00f5d4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* CONTACT */
+
+.contact {
+    padding: 100px 8%;
+    text-align: center;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: black;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.logo img {
+    height: 45px;
+}
