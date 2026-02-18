@@ -2,76 +2,239 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Olifant Web Studio</title>
+    <title>Olifant Web Studio - Professional Web Development</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expert web development services. We create modern, scalable digital experiences for your business.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="navbar">
     <div class="logo">
-        <a href="index.html"><img src="images/olifant-web-studio-logo.png" alt="Olifant Logo"></a>
-    <img src="images/olifant-web-studio-logo.png" alt="Olifant Logo">
-</div>
-    <ul>
+        <a href="index.html">
+            <img src="images/olifant-web-studio-logo.png.png" alt="Olifant Web Studio">
+            <span class="logo-text">Olifant Web Studio</span>
+        </a>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
+<!-- Hero Section with Slideshow -->
 <section class="hero">
-    <div class="hero-content">
-        <h1>We Build High-Performance Digital Experiences</h1>
-        <p>Modern. Powerful. Scalable.</p>
-        <a href="#portfolio" class="btn">View Our Work</a>
+    <div class="slideshow-container">
+        <div class="slide fade" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+        </div>
+        <div class="slide fade" style="background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+        </div>
+        <div class="slide fade" style="background-image: url('https://images.unsplash.com/photo-1507003542179-759040d3a646?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+        </div>
+        <div class="slide fade" style="background-image: url('https://images.unsplash.com/photo-1547658064-fdbf7a76c563?auto=format&fit=crop&w=1200&q=80');">
+            <div class="slide-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>We Build High-Performance Digital Experiences</h1>
+            <p>Modern. Powerful. Scalable.</p>
+            <a href="#services" class="btn btn-primary">Explore Our Services</a>
+        </div>
+
+        <div class="slide-indicators">
+            <span class="indicator" onclick="currentSlide(1)"></span>
+            <span class="indicator" onclick="currentSlide(2)"></span>
+            <span class="indicator" onclick="currentSlide(3)"></span>
+            <span class="indicator" onclick="currentSlide(4)"></span>
+        </div>
     </div>
 </section>
 
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>About Olifant Web Studio</h2>
+        <p class="section-subtitle">Crafting Digital Excellence for Businesses Worldwide</p>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Who We Are</h3>
+                <p>At Olifant Web Studio, we specialize in creating custom web solutions that drive business growth. With expertise in modern web technologies and a passion for user experience, we transform ideas into high-performing digital products.</p>
+                
+                <h3>What We Do</h3>
+                <p>We combine strategic thinking with technical excellence to deliver websites and web applications that not only look stunning but also achieve measurable results. From concept to deployment, we handle every aspect of your web development project with precision and care.</p>
+
+                <h3>Our Approach</h3>
+                <ul class="features-list">
+                    <li>✓ Responsive & Mobile-First Design</li>
+                    <li>✓ SEO-Optimized Development</li>
+                    <li>✓ Performance & Security First</li>
+                    <li>✓ User-Centric Interface Design</li>
+                    <li>✓ Ongoing Support & Maintenance</li>
+                </ul>
+            </div>
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h4>50+</h4>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-box">
+                    <h4>35+</h4>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-box">
+                    <h4>5+</h4>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-box">
+                    <h4>98%</h4>
+                    <p>Client Satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
 <section id="services" class="services">
-    <h2>Our Expertise</h2>
-    <div class="service-grid">
-        <div class="service-card">
-            <h3>Business Websites</h3>
-            <p>Professional websites built to grow your brand.</p>
-        </div>
-        <div class="service-card">
-            <h3>E-Commerce Stores</h3>
-            <p>High-converting online stores with secure checkout.</p>
-        </div>
-        <div class="service-card">
-            <h3>Dynamic Platforms</h3>
-            <p>Advanced systems & web applications tailored to your needs.</p>
+    <div class="container">
+        <h2>Our Services</h2>
+        <p class="section-subtitle">Comprehensive Web Development Solutions</p>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Website Design & Development</h3>
+                <p>Custom, responsive websites built with modern technologies. SEO-optimized and fast-loading for maximum visibility and user engagement.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Mobile-First Solutions</h3>
+                <p>Fully responsive designs that look perfect on all devices. Every project is optimized for mobile users from the ground up.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Web Applications</h3>
+                <p>Powerful web apps with interactive features. Built using modern frameworks for smooth, fast, and reliable performance.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>SEO Optimization</h3>
+                <p>Strategic SEO implementation to boost your online visibility. Higher rankings mean more traffic and more customers.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>UI/UX Design</h3>
+                <p>Beautiful, intuitive interfaces that users love. We focus on usability and aesthetics to create memorable experiences.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🛠️</div>
+                <h3>Maintenance & Support</h3>
+                <p>Ongoing technical support and updates to keep your site running smoothly. We're here when you need us.</p>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Portfolio Section -->
 <section id="portfolio" class="portfolio">
-    <h2>Featured Projects</h2>
+    <div class="container">
+        <h2>Our Portfolio</h2>
+        <p class="section-subtitle">Showcase of Our Best Work</p>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-adf4e565db7d?auto=format&fit=crop&w=500&q=60" alt="Project 1">
+                </div>
+                <h3>E-Commerce Platform</h3>
+                <p>Full-featured online store with secure payment integration and inventory management.</p>
+                <a href="#">View Project →</a>
+            </div>
 
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <h3>REGCORP PTY LTD</h3>
-            <p>Corporate business website.</p>
-            <a href="regcorp/index.html" target="_blank">Visit Site</a>
-        </div>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=500&q=60" alt="Project 2">
+                </div>
+                <h3>Business Dashboard</h3>
+                <p>Interactive analytics dashboard with real-time data visualization and reporting tools.</p>
+                <a href="#">View Project →</a>
+            </div>
 
-        <div class="portfolio-card">
-            <h3>NEWLY SLY</h3>
-            <p>Streetwear E-Commerce Brand.</p>
-            <a href="newlysly/index.html" target="_blank">Visit Store</a>
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1531746020646-e2b920eaf564?auto=format&fit=crop&w=500&q=60" alt="Project 3">
+                </div>
+                <h3>Portfolio Website</h3>
+                <p>Stunning portfolio site for creative professionals with smooth animations and gallery features.</p>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="portfolio-card">
+                <div class="portfolio-image">
+                    <img src="https://images.unsplash.com/photo-1522869635100-ce306e08e04d?auto=format&fit=crop&w=500&q=60" alt="Project 4">
+                </div>
+                <h3>Corporate Website</h3>
+                <p>Professional corporate site with case studies, team profiles, and lead generation forms.</p>
+                <a href="#">View Project →</a>
+            </div>
         </div>
     </div>
 </section>
 
+<!-- Contact Section -->
 <section id="contact" class="contact">
-    <h2>Let’s Build Something Great</h2>
-    <p>Email: brucejnrolifant55@gmail.com</p>
-    <p>Contact: +27 67 408 2993</p>
+    <div class="container">
+        <h2>Let's Work Together</h2>
+        <p class="section-subtitle">Ready to transform your digital presence?</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="info-box">
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:brucejnrolifant55@gmail.com">brucejnrolifant55@gmail.com</a></p>
+                </div>
+                <div class="info-box">
+                    <h3>📱 Phone</h3>
+                    <p><a href="tel:+27123456789">+27 (0)67 408 2993</a></p>
+                </div>
+                <div class="info-box">
+                    <h3>📍 Location</h3>
+                    <p>Polokwane, South Africa</p>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Tell us about your project..." rows="5" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </div>
 </section>
 
 <footer>
-    <p>© 2026 Olifant Web Studio. All rights reserved.</p>
+    <div class="container">
+        <p>&copy; 2026 Olifant Web Studio. All rights reserved.</p>
+        <p class="developer-credit">All websites designed and developed by <strong>Dimpho Olifant</strong></p>
+        <p class="footer-links">
+            <a href="#about">About</a> | 
+            <a href="#services">Services</a> | 
+            <a href="#portfolio">Portfolio</a> | 
+            <a href="#contact">Contact</a>
+        </p>
+    </div>
 </footer>
 
 <script src="script.js"></script>

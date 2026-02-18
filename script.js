@@ -1,23 +1,84 @@
-// Smooth scroll
+// SLIDESHOW FUNCTIONALITY
+let slideIndex = 1;
+let slideTimer;
+
+function showSlides(n) {
+    const slides = document.getElementsByClassName("slide");
+    const indicators = document.getElementsByClassName("indicator");
+    
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
+    
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (let i = 0; i < indicators.length; i++) {
+        indicators[i].classList.remove("active");
+    }
+    
+    slides[slideIndex - 1].style.display = "block";
+    indicators[slideIndex - 1].classList.add("active");
+}
+
+function currentSlide(n) {
+    clearTimeout(slideTimer);
+    showSlides(slideIndex = n);
+    autoSlides();
+}
+
+function autoSlides() {
+    slideTimer = setTimeout(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+        autoSlides();
+    }, 5000); // Change slide every 5 seconds
+}
+
+// START SLIDESHOW ON PAGE LOAD
+document.addEventListener('DOMContentLoaded', () => {
+    showSlides(slideIndex);
+    autoSlides();
+});
+
+// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({ behavior: "smooth" });
-    });
-});
-
-// Fade-in animation on scroll
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
+        const targetId = this.getAttribute("href");
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({ 
+                behavior: "smooth",
+                block: "start"
+            });
         }
     });
 });
 
-document.querySelectorAll(".service-card, .portfolio-card")
-.forEach(el => {
-    el.classList.add("hidden");
-    observer.observe(el);
+// FADE-IN ANIMATION ON SCROLL
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.1
 });
+
+document.querySelectorAll(".service-card, .portfolio-card, .about, .stat-box")
+    .forEach(el => {
+        el.classList.add("hidden");
+        observer.observe(el);
+    });
+
+// FORM SUBMISSION
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Thank you for your message! We'll get back to you soon.");
+        contactForm.reset();
+    });
+}
