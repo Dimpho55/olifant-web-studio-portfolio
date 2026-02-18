@@ -29,20 +29,55 @@
 <section class="slideshow-wrap">
     <h2 class="shop-title">Drop Preview</h2>
     <div class="slideshow" id="slideshow">
-        <div class="slide active"><img src="images/newlysly-hoodie-black.png" alt="Black hoodie"></div>
-        <div class="slide"><img src="images/newlysly-hoodie-orange.png" alt="Orange hoodie"></div>
-        <div class="slide"><img src="images/newlysly-tee-tyedye.png" alt="Tiedye tee"></div>
-        <div class="slide"><img src="images/newlysly-tee-white.png" alt="White tee"></div>
-        <div class="slide"><img src="images/newlysly-beanie-black.png" alt="Black beanie"></div>
-        <div class="slide"><img src="images/newlysly-sweatpants-purple.png" alt="Purple sweatpants"></div>
+        <div class="slide active">
+            <img src="images/newlysly-hoodie-black.png" alt="Black hoodie">
+            <div class="caption"><a href="shop.html#hoodie-black">Black Hoodie — Cozy fit with embroidered logo.</a></div>
+        </div>
+        <div class="slide">
+            <img src="images/newlysly-hoodie-orange.png" alt="Orange hoodie">
+            <div class="caption"><a href="shop.html#hoodie-orange">Orange Hoodie — Limited edition orange drop.</a></div>
+        </div>
+        <div class="slide">
+            <img src="images/newlysly-tee-tyedye.png" alt="Tiedye tee">
+            <div class="caption"><a href="shop.html#tee-tyedye">Tiedye Tee — Retro dye and soft cotton.</a></div>
+        </div>
+        <div class="slide">
+            <img src="images/newlysly-tee-white.png" alt="White tee">
+            <div class="caption"><a href="shop.html#tee-white">White Tee — Minimal logo, oversized fit.</a></div>
+        </div>
+        <div class="slide">
+            <img src="images/newlysly-beanie-black.png" alt="Black beanie">
+            <div class="caption"><a href="shop.html#beanie-black">Black Beanie — One size, snug and warm.</a></div>
+        </div>
+        <div class="slide">
+            <img src="images/newlysly-sweatpants-purple.png" alt="Purple sweatpants">
+            <div class="caption"><a href="shop.html#sweatpants-purple">Purple Sweatpants — Relaxed cut, bold colour.</a></div>
+        </div>
     </div>
     <button class="slide-btn prev" id="prevBtn">‹</button>
     <button class="slide-btn next" id="nextBtn">›</button>
+    <div class="slide-controls">
+        <label>Speed:
+            <select id="slideSpeed">
+                <option value="2000">Fast (2s)</option>
+                <option value="4000" selected>Normal (4s)</option>
+                <option value="6000">Slow (6s)</option>
+            </select>
+        </label>
+    </div>
     <div class="dots" id="slideDots"></div>
+
+    <!-- Thumbnail strip -->
+    <div class="thumbs" id="slideThumbs">
+        <button data-index="0"><img class="thumb-img" src="images/thumbs/newlysly-hoodie-black-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+        <button data-index="1"><img class="thumb-img" src="images/thumbs/newlysly-hoodie-orange-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+        <button data-index="2"><img class="thumb-img" src="images/thumbs/newlysly-tee-tyedye-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+        <button data-index="3"><img class="thumb-img" src="images/thumbs/newlysly-tee-white-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+        <button data-index="4"><img class="thumb-img" src="images/thumbs/newlysly-beanie-black-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+        <button data-index="5"><img class="thumb-img" src="images/thumbs/newlysly-sweatpants-purple-thumb.svg" loading="lazy" decoding="async" alt="thumb"></button>
+    </div>
 </section>
 
-<footer>
-    <p>© 2026 NEWLY SLY</p>
 <footer>
     <p>© 2026 NEWLY SLY</p>
 </footer>

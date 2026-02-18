@@ -1,3 +1,41 @@
+// HIDE-ON-SCROLL NAVBAR
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+        navbar.classList.add('hide-navbar');
+    } else {
+        navbar.classList.remove('hide-navbar');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
+// MOBILE MENU TOGGLE
+document.addEventListener('DOMContentLoaded', function(){
+    const navLinks = document.querySelector('.navbar .nav-links');
+    const navBar = document.querySelector('.navbar');
+    
+    // Create hamburger menu for mobile
+    if (window.innerWidth <= 768 && !document.querySelector('.hamburger')) {
+        const hamburger = document.createElement('button');
+        hamburger.classList.add('hamburger');
+        hamburger.innerHTML = '☰';
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navBar.appendChild(hamburger);
+    }
+    
+    // Close menu when link is clicked
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+});
+
 // SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {

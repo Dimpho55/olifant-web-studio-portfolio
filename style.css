@@ -49,6 +49,11 @@ body {
     background: rgba(0, 0, 0, 0.95);
 }
 
+/* navbar hide-on-scroll behavior */
+.navbar.hide-navbar {
+    transform: translateY(-100%);
+}
+
 .logo a {
     display: flex;
     align-items: center;
@@ -763,4 +768,92 @@ footer {
 }
 .logo img {
     height: 45px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 4%;
+    }
+    
+    .logo-text { display: none; }
+    
+    .nav-links {
+        flex-direction: column;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-links.active {
+        max-height: 300px;
+    }
+    
+    .nav-links li {
+        padding: 14px 20px;
+        border-bottom: 1px solid rgba(255, 209, 42, 0.1);
+    }
+    
+    .logo a img {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .hero {
+        margin-top: 55px;
+        min-height: 60vh;
+    }
+    
+    .slideshow-container {
+        height: 300px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .product-grid,
+    .service-grid,
+    .portfolio-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 2%;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+    }
+    
+    .hero {
+        min-height: 50vh;
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
 }

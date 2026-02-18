@@ -34,6 +34,44 @@ function autoSlides() {
     }, 5000); // Change slide every 5 seconds
 }
 
+// HIDE-ON-SCROLL NAVBAR
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    if (currentScroll > lastScrollTop && currentScroll > 100) {
+        navbar.classList.add('hide-navbar');
+    } else {
+        navbar.classList.remove('hide-navbar');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
+// MOBILE MENU TOGGLE (for responsive nav)
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelector('.nav-links');
+    const navbar = document.querySelector('.navbar');
+    
+    // Create hamburger menu for mobile
+    if (window.innerWidth <= 768 && !document.querySelector('.hamburger')) {
+        const hamburger = document.createElement('button');
+        hamburger.classList.add('hamburger');
+        hamburger.innerHTML = '☰';
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navbar.appendChild(hamburger);
+    }
+    
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+});
+
 // START SLIDESHOW ON PAGE LOAD
 document.addEventListener('DOMContentLoaded', () => {
     showSlides(slideIndex);
