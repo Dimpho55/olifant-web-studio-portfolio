@@ -47,6 +47,70 @@ footer {
     color: white;
 }
 
+.contact-box {
+    background: #e8eef7;
+    padding: 30px;
+    border-left: 5px solid #00509e;
+    margin: 30px 0;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.contact-box p {
+    margin: 10px 0;
+}
+
+.contact-box a {
+    color: #00509e;
+    text-decoration: none;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.service-item {
+    background: white;
+    padding: 30px;
+    border-left: 5px solid #00509e;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,51,102,0.1);
+}
+
+.service-item h3 {
+    color: #00509e;
+    margin-bottom: 15px;
+}
+
+.content ul {
+    text-align: left;
+    display: inline-block;
+    margin: 30px 0;
+}
+
+.content ul li {
+    margin: 10px 0;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 30px;
+    background: #00509e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:active {
+    background: #003366;
+}
+
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;

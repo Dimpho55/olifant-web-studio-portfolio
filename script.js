@@ -1,9 +1,34 @@
+// Slideshow functionality
+let slideIndex = 0;
+
+function showSlide() {
+    const slides = document.querySelectorAll('.slide');
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    }
+    slides.forEach((slide, index) => {
+        slide.classList.remove('fade');
+        if (index === slideIndex) {
+            slide.classList.add('fade');
+        }
+    });
+    slideIndex++;
+    setTimeout(showSlide, 5000); // Change slide every 5 seconds
+}
+
+// Start slideshow on page load
+window.addEventListener('load', () => {
+    showSlide();
+});
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute("href"))
-            .scrollIntoView({ behavior: "smooth" });
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+        }
     });
 });
 
@@ -16,8 +41,9 @@ const observer = new IntersectionObserver(entries => {
     });
 });
 
-document.querySelectorAll(".service-card, .portfolio-card")
+document.querySelectorAll(".service-card, .portfolio-card, .about-content")
 .forEach(el => {
     el.classList.add("hidden");
     observer.observe(el);
 });
+
