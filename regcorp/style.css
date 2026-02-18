@@ -28,7 +28,7 @@ body {
     align-items: center;
     padding: 15px 8%;
     background: rgba(0, 0, 0, 0.95);
-    position: fixed;
+    position: relative;
     width: 100%;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(255, 215, 0, 0.1);
@@ -54,11 +54,6 @@ body {
 
 .logo img {
     height: 40px;
-    transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.1);
 }
 
 .logo-text {
@@ -91,13 +86,8 @@ body {
     transition: width 0.3s ease;
 }
 
-.navbar a:hover::after {
-    width: 100%;
-}
-
-.navbar a:hover {
-    color: #ffd700;
-}
+.navbar a:hover::after { width: 0; height: 0; }
+.navbar a:hover { color: inherit; }
 
 .navbar a.back-link {
     background: rgba(255, 215, 0, 0.1);

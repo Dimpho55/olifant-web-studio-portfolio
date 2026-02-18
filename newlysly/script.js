@@ -115,15 +115,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if (prevBtn) prevBtn.addEventListener('click', () => { prev(); start(); });
         if (nextBtn) nextBtn.addEventListener('click', () => { next(); start(); });
 
-        // speed selector
-        const speedSelect = document.getElementById('slideSpeed');
-        if (speedSelect) {
-            intervalMs = parseInt(speedSelect.value, 10) || intervalMs;
-            speedSelect.addEventListener('change', function(){
-                intervalMs = parseInt(this.value, 10) || intervalMs;
-                start();
-            });
-        }
+        // speed selector removed for simpler UX (kept default interval)
 
         // pause on hover
         wrap.addEventListener('mouseenter', stop);
