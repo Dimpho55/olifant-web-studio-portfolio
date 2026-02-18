@@ -28,6 +28,24 @@ body {
     text-decoration: none;
 }
 
+.navbar a.back-link {
+    background: rgba(255, 0, 51, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ff0033;
+    font-size: 0.9rem;
+}
+
+.navbar a.back-link:hover {
+    background: #ff0033;
+    color: white;
+}
+
+.navbar .logo a {
+    color: #ff0033;
+    text-decoration: none;
+}
+
 .hero {
     height: 90vh;
     display: flex;

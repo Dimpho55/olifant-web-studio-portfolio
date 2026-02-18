@@ -96,6 +96,19 @@ body {
     color: #00f5d4;
 }
 
+.navbar a.back-link {
+    background: rgba(0, 245, 212, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #00f5d4;
+    font-size: 0.9rem;
+}
+
+.navbar a.back-link:hover {
+    background: #00f5d4;
+    color: #0f0f1b;
+}
+
 /* HERO SECTION WITH SLIDESHOW */
 
 .hero {

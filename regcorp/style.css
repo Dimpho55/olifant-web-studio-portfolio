@@ -95,6 +95,19 @@ body {
     color: #ffd700;
 }
 
+.navbar a.back-link {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #ffd700;
+    font-size: 0.9rem;
+}
+
+.navbar a.back-link:hover {
+    background: #ffd700;
+    color: #000000;
+}
+
 /* HERO SECTION */
 .hero {
     padding: 150px 20px 100px;
