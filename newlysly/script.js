@@ -40,3 +40,51 @@ function addToCart(id, name, price, imagePath) {
 function salePrice(orig) {
     return Math.round((orig * 0.9) * 100) / 100;
 }
+
+// --- Homepage slideshow ---
+(function(){
+    let slideIndex = 0;
+    let slides = [];
+    let dots = [];
+    let timer = null;
+    const interval = 4000;
+
+    function showSlide(n){
+        if (!slides.length) return;
+        slides.forEach((s, i) => s.classList.toggle('active', i === n));
+        dots.forEach((d, i) => d.classList.toggle('active', i === n));
+        slideIndex = n;
+    }
+
+    function next(){ showSlide((slideIndex + 1) % slides.length); }
+    function prev(){ showSlide((slideIndex - 1 + slides.length) % slides.length); }
+
+    function start(){ stop(); timer = setInterval(next, interval); }
+    function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        const wrap = document.getElementById('slideshow');
+        if (!wrap) return;
+        slides = Array.from(wrap.querySelectorAll('.slide'));
+
+        const dotsWrap = document.getElementById('slideDots');
+        slides.forEach((s, i) => {
+            const b = document.createElement('button');
+            b.addEventListener('click', () => { showSlide(i); start(); });
+            dotsWrap.appendChild(b);
+            dots.push(b);
+        });
+
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        if (prevBtn) prevBtn.addEventListener('click', () => { prev(); start(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { next(); start(); });
+
+        // pause on hover
+        wrap.addEventListener('mouseenter', stop);
+        wrap.addEventListener('mouseleave', start);
+
+        showSlide(0);
+        start();
+    });
+})();

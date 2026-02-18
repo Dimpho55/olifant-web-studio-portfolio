@@ -10,6 +10,8 @@ body {
     color: white;
 }
 
+.logo-img{ width:120px; height:auto; margin-bottom:12px; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6)); }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,6 +57,22 @@ body {
     background: linear-gradient(135deg, black, #1a0005);
     text-align: center;
 }
+
+.hero .lead { color:#ddd; max-width:720px; margin-top:8px; text-align:center; }
+
+/* Slideshow */
+.slideshow-wrap{ position:relative; padding:40px 8%; display:flex; flex-direction:column; align-items:center; gap:16px; background:linear-gradient(180deg, rgba(0,0,0,0.65), rgba(10,5,10,0.9)); }
+.slideshow{ width:100%; max-width:980px; height:420px; position:relative; overflow:hidden; border-radius:14px; border:1px solid rgba(255,255,255,0.04); background:#080608; }
+.slide{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; opacity:0; transform:scale(1.02); transition:opacity 600ms ease, transform 600ms ease; }
+.slide.active{ opacity:1; transform:scale(1); }
+.slide img{ width:100%; height:100%; object-fit:cover; display:block; }
+.slide-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.45); border:none; color:#fff; font-size:30px; width:52px; height:52px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter: blur(4px); }
+.slide-btn.prev{ left:18px; }
+.slide-btn.next{ right:18px; }
+.slide-btn:hover{ background:rgba(0,0,0,0.65); }
+.dots{ display:flex; gap:8px; margin-top:12px; }
+.dots button{ width:10px; height:10px; background:rgba(255,255,255,0.25); border-radius:50%; border:none; cursor:pointer; }
+.dots button.active{ background:#ffd46b; box-shadow:0 0 8px rgba(255,212,107,0.25); }
 
 .btn {
     margin-top: 20px;
