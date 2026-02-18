@@ -1,0 +1,66 @@
+:root{
+    --bg: #0b3fa7;
+    --accent: #ffd12a;
+    --muted: #ffffff;
+    --card: #072a63;
+    --logo-purple: #5b2b82;
+}
+
+/* Global overrides to apply poster color scheme */
+body{
+    background: var(--bg) !important;
+    color: var(--muted) !important;
+}
+
+.navbar{
+    background: rgba(3,24,67,0.95) !important;
+}
+
+.navbar a{
+    color: var(--muted) !important;
+}
+
+.navbar a:hover,
+.navbar a:hover::after{
+    color: var(--accent) !important;
+}
+
+.btn, .btn-primary{
+    background: var(--accent) !important;
+    color: var(--bg) !important;
+    border-radius: 50px;
+}
+
+.btn:hover, .btn-primary:hover{
+    background: #fff07a !important;
+}
+
+.section-subtitle{
+    color: var(--accent) !important;
+}
+
+.stat-box{
+    background: rgba(255,209,42,0.08) !important;
+    border: 1px solid var(--accent) !important;
+}
+
+.info-box h3{
+    color: var(--accent) !important;
+}
+
+.portfolio-card a{
+    color: var(--accent) !important;
+}
+
+footer{
+    background: #071a3a !important;
+    border-top: 1px solid var(--accent) !important;
+}
+
+.developer-credit{
+    color: var(--accent) !important;
+}
+
+/* small adjustments */
+.slide-overlay{ background: rgba(3,24,67,0.45) !important; }
+.logo-text{ color: var(--accent) !important; }
