@@ -1,0 +1,35 @@
+# Python environment
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Automation suite directories
+logs/
+backups/
+reports/
+config/remote.conf
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+.*.swp
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/

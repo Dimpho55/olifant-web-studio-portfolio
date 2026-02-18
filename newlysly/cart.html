@@ -10,17 +10,46 @@
 <div id="cart-items"></div>
 <h2 id="total"></h2>
 
+<div style="margin-top:20px;">
+    <h3>Shipping</h3>
+    <p>Recommended courier: <strong>The Courier Guy</strong>. Example flat-rate R120 (adjust at checkout).</p>
+    <p><a href="https://www.thecourierguy.co.za" target="_blank" rel="noopener">thecourierguy.co.za</a></p>
+    <button id="checkout-btn">Proceed to Checkout</button>
+</div>
+
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let container = document.getElementById("cart-items");
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let container = document.getElementById('cart-items');
 let total = 0;
 
+if (cart.length === 0) {
+    container.innerHTML = '<p>Your cart is empty.</p>';
+}
+
 cart.forEach(item => {
-    container.innerHTML += `<p>${item.name} - R${item.price}</p>`;
-    total += item.price;
+    const itemTotal = (item.price || 0) * (item.qty || 1);
+    container.innerHTML += `
+        <div style="display:flex;gap:15px;align-items:center;padding:10px 0;border-bottom:1px solid #333;">
+            <img src="${item.image}" alt="${item.name}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;">
+            <div>
+                <strong>${item.name}</strong>
+                <div>Size: ${item.size}</div>
+                <div>Qty: ${item.qty}</div>
+                <div>Price: R${item.price.toFixed(2)}</div>
+            </div>
+            <div style="margin-left:auto;">R${itemTotal.toFixed(2)}</div>
+        </div>
+    `;
+    total += itemTotal;
 });
 
-document.getElementById("total").innerText = "Total: R" + total;
+// example shipping
+const shipping = cart.length ? 120 : 0;
+document.getElementById('total').innerText = `Subtotal: R${total.toFixed(2)} — Shipping: R${shipping.toFixed(2)} — Total: R${(total+shipping).toFixed(2)}`;
+
+document.getElementById('checkout-btn').addEventListener('click', () => {
+    alert('Checkout placeholder — contact hello@newlysly.example to arrange payment and shipping.');
+});
 </script>
 
 </body>

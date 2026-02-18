@@ -6,24 +6,132 @@
 </head>
 <body>
 
+
 <h1 class="shop-title">Shop Collection</h1>
 
+<p style="text-align:center; color:#ddd; margin-top:8px;">All items 10% off. Sizes XS - XXXL. Established 2025 • Seshego, Polokwane</p>
+
 <div class="product-grid">
-    <div class="product">
-        <h3>Oversized Hoodie</h3>
-        <p>R799</p>
-        <button onclick="addToCart('Oversized Hoodie', 799)">Add to Cart</button>
-
+    <!-- Hoodie - Black -->
+    <div class="product" id="hoodie-black">
+        <img src="images/newlysly-hoodie-black.png" alt="Hoodie Black">
+        <h3>Oversized Hoodie — Black</h3>
+        <p class="price"><span class="orig">R899</span> <span class="sale">R<span data-price="899">809.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('hoodie-black','Oversized Hoodie - Black',809.10,'images/newlysly-hoodie-black.png')">Add to Cart</button>
     </div>
 
-    <div class="product">
-        <h3>Street Tee</h3>
-        <p>R399</p>
-        <button onclick="addToCart('Street Tee', 399)">Add to Cart</button>
-
+    <!-- Hoodie - Orange -->
+    <div class="product" id="hoodie-orange">
+        <img src="images/newlysly-hoodie-orange.png" alt="Hoodie Orange">
+        <h3>Oversized Hoodie — Orange</h3>
+        <p class="price"><span class="orig">R899</span> <span class="sale">R<span data-price="899">809.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('hoodie-orange','Oversized Hoodie - Orange',809.10,'images/newlysly-hoodie-orange.png')">Add to Cart</button>
     </div>
+
+    <!-- Tee - TyeDye -->
+    <div class="product" id="tee-tyedye">
+        <img src="images/newlysly-tee-tyedye.png" alt="TyeDye Tee">
+        <h3>Street Tee — TyeDye</h3>
+        <p class="price"><span class="orig">R399</span> <span class="sale">R<span data-price="399">359.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('tee-tyedye','Street Tee - TyeDye',359.10,'images/newlysly-tee-tyedye.png')">Add to Cart</button>
+    </div>
+
+    <!-- Tee - White -->
+    <div class="product" id="tee-white">
+        <img src="images/newlysly-tee-white.png" alt="White Tee">
+        <h3>Street Tee — White</h3>
+        <p class="price"><span class="orig">R399</span> <span class="sale">R<span data-price="399">359.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('tee-white','Street Tee - White',359.10,'images/newlysly-tee-white.png')">Add to Cart</button>
+    </div>
+
+    <!-- Beanie - Black -->
+    <div class="product" id="beanie-black">
+        <img src="images/newlysly-beanie-black.png" alt="Beanie Black">
+        <h3>Classic Beanie — Black</h3>
+        <p class="price"><span class="orig">R199</span> <span class="sale">R<span data-price="199">179.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>One Size</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('beanie-black','Classic Beanie - Black',179.10,'images/newlysly-beanie-black.png')">Add to Cart</button>
+    </div>
+
+    <!-- Beanie - Green -->
+    <div class="product" id="beanie-green">
+        <img src="images/newlysly-beanie.png" alt="Beanie Green">
+        <h3>Classic Beanie — Green</h3>
+        <p class="price"><span class="orig">R199</span> <span class="sale">R<span data-price="199">179.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>One Size</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('beanie-green','Classic Beanie - Green',179.10,'images/newlysly-beanie.png')">Add to Cart</button>
+    </div>
+
+    <!-- Sweatpants - Purple -->
+    <div class="product" id="sweatpants-purple">
+        <img src="images/newlysly-sweatpants-purple.png" alt="Sweatpants Purple">
+        <h3>Relaxed Sweatpants — Purple</h3>
+        <p class="price"><span class="orig">R649</span> <span class="sale">R<span data-price="649">584.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('sweatpants-purple','Relaxed Sweatpants - Purple',584.10,'images/newlysly-sweatpants-purple.png')">Add to Cart</button>
+    </div>
+
+    <!-- Denims - Black -->
+    <div class="product" id="denim-black">
+        <img src="images/newlysly-denim-black.png" alt="Denim Black">
+        <h3>Slim Black Denims</h3>
+        <p class="price"><span class="orig">R549</span> <span class="sale">R<span data-price="549">494.10</span></span></p>
+        <label>Size:</label>
+        <select class="size-select">
+            <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option>
+        </select>
+        <label>Qty:</label>
+        <input type="number" class="qty" value="1" min="1" />
+        <button onclick="addToCart('denim-black','Slim Black Denims',494.10,'images/newlysly-denim-black.png')">Add to Cart</button>
+    </div>
+
 </div>
-    <script src="script.js"></script>
+
+<section style="text-align:center; padding:30px; color:#ddd;">
+    <h3>Courier</h3>
+    <p>We recommend <strong>The Courier Guy</strong> for reliable nationwide shipping in South Africa. Visit <a href="https://www.thecourierguy.co.za" target="_blank" rel="noopener" style="color:#fff2b8;">thecourierguy.co.za</a> for rates. Flat-rate local shipping example: R120.</p>
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>
