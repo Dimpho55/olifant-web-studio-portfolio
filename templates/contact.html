@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="page">
+    <h1>Contact Us</h1>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Mr Olifant" required>
+        <input type="email" name="email" placeholder="brucejnrolifant55@gmail.com" required>
+        <textarea name="message" placeholder="Choose the best for your business"></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+{% endblock %}

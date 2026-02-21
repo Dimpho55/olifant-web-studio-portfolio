@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f2c6e;
+    color: white;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 50px;
+    background: #0b1f4a;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    margin-right: 10px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffc107;
+}
+
+.hero {
+    height: 90vh;
+    background: linear-gradient(to right, #0f2c6e, #1a3e91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.btn {
+    background: #ffc107;
+    padding: 12px 25px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slides {
+    display: flex;
+    animation: slide 12s infinite;
+}
+
+.slides img {
+    width: 100%;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #1a3e91;
+    padding: 20px;
+    flex: 1;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background: #ffc107;
+    color: black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+}
+
+input, textarea {
+    margin: 10px 0;
+    padding: 12px;
+}
+
+button {
+    background: #ffc107;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0b1f4a;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    .cards {
+        flex-direction: column;
+    }
+    form {
+        width: 90%;
+    }
+}
