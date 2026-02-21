@@ -1,10 +1,11 @@
 """
-Image Validator Module - Validates images in HTML files
+Image Validator Module - Validates images across websites
 """
 
 from pathlib import Path
 from typing import Dict, List
 from bs4 import BeautifulSoup
+import os
 
 class ImageValidator:
     def __init__(self, config):
@@ -16,26 +17,23 @@ class ImageValidator:
         results = {
             'site': site,
             'total': 0,
-            'valid': [],
             'missing': [],
-            'no_alt': [],
-            'large_files': []
+            'valid': [],
+            'no_alt': []
         }
         
         images = self._extract_images(site_path)
         results['total'] = len(images)
         
         for img in images:
-            status = self._check_image(img, site_path)
+            validation = self._validate_image(site_path, img)
             
-            if status['type'] == 'missing':
-                results['missing'].append(status)
-            elif status['type'] == 'no_alt':
-                results['no_alt'].append(status)
-            elif status['type'] == 'large':
-                results['large_files'].append(status)
+            if validation['status'] == 'missing':
+                results['missing'].append(validation)
+            elif validation['status'] == 'no_alt':
+                results['no_alt'].append(validation)
             else:
-                results['valid'].append(status)
+                results['valid'].append(validation)
         
         return results
     
@@ -57,54 +55,63 @@ class ImageValidator:
                             images.append({
                                 'src': src,
                                 'alt': alt,
-                                'file': str(html_file),
-                                'line': img.sourceline or 'unknown'
+                                'file': str(html_file.relative_to(path))
                             })
             except Exception as e:
                 pass
         
         return images
     
-    def _check_image(self, img: Dict, site_path: Path) -> Dict:
-        """Check if an image file exists and is valid"""
+    def _validate_image(self, site_path: Path, img: Dict) -> Dict:
+        """Validate a single image"""
         src = img['src']
-        alt = img['alt']
         
-        # Skip data URIs and external URLs for now
-        if src.startswith('data:') or src.startswith('http'):
-            return {'type': 'valid', **img, 'size_mb': 0}
+        # Skip external URLs
+        if src.startswith('http'):
+            return {
+                'path': src,
+                'file': img['file'],
+                'status': 'external',
+                'alt': img['alt']
+            }
         
-        # Handle paths
-        if src.startswith('/'):
-            src = '.' + src
+        # Skip data URIs
+        if src.startswith('data:'):
+            return {
+                'path': src,
+                'file': img['file'],
+                'status': 'data_uri',
+                'alt': img['alt']
+            }
         
-        # Resolve the path
-        try:
-            full_path = (site_path / src).resolve()
-            exists = full_path.exists()
-        except:
-            exists = False
-        
-        if not exists:
-            return {'type': 'missing', **img, 'error': 'File not found'}
-        
-        # Check file size
-        try:
-            size_bytes = full_path.stat().st_size
-            size_mb = size_bytes / (1024 * 1024)
-            
-            if size_mb > 5:  # Warn about large images
-                return {
-                    'type': 'large',
-                    **img,
-                    'size_mb': round(size_mb, 2),
-                    'warning': f'Large image: {round(size_mb, 2)}MB'
-                }
-        except:
-            pass
+        # Check local file
+        img_path = site_path / src.lstrip('/')
+        exists = img_path.exists()
         
         # Check alt text
-        if not alt or alt.strip() == '':
-            return {'type': 'no_alt', **img, 'warning': 'Missing alt text (accessibility issue)'}
+        has_alt = bool(img['alt'].strip())
         
-        return {'type': 'valid', **img, 'size_mb': round(size_mb, 2) if size_mb else 0}
+        if not exists:
+            return {
+                'path': src,
+                'file': img['file'],
+                'status': 'missing',
+                'alt': img['alt'],
+                'error': f'File not found: {img_path}'
+            }
+        
+        if not has_alt:
+            return {
+                'path': src,
+                'file': img['file'],
+                'status': 'no_alt',
+                'alt': img['alt']
+            }
+        
+        return {
+            'path': src,
+            'file': img['file'],
+            'status': 'valid',
+            'alt': img['alt'],
+            'size': os.path.getsize(img_path)
+        }

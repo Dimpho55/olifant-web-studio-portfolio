@@ -44,28 +44,16 @@ class PerformanceMonitor:
         
         # Calculate sizes
         for f in html_files:
-            try:
-                metrics['html_size'] += f.stat().st_size / (1024 * 1024)  # MB
-            except:
-                pass
+            metrics['html_size'] += f.stat().st_size / (1024 * 1024)  # MB
         
         for f in css_files:
-            try:
-                metrics['css_size'] += f.stat().st_size / (1024 * 1024)
-            except:
-                pass
+            metrics['css_size'] += f.stat().st_size / (1024 * 1024)
         
         for f in js_files:
-            try:
-                metrics['js_size'] += f.stat().st_size / (1024 * 1024)
-            except:
-                pass
+            metrics['js_size'] += f.stat().st_size / (1024 * 1024)
         
         for f in image_files:
-            try:
-                metrics['image_size'] += f.stat().st_size / (1024 * 1024)
-            except:
-                pass
+            metrics['image_size'] += f.stat().st_size / (1024 * 1024)
         
         metrics['total_size'] = round(
             metrics['html_size'] + metrics['css_size'] + 
@@ -92,91 +80,60 @@ class PerformanceMonitor:
                 with open(html_file, 'r', encoding='utf-8') as f:
                     soup = BeautifulSoup(f, 'html.parser')
                     total += len(soup.find_all())
-            except:
+            except Exception:
                 pass
         
         return total
     
     def _estimate_load_time(self, metrics: Dict) -> int:
-        """Estimate page load time in milliseconds"""
-        # Simple formula: base time + file size + request overhead
-        base_time = 200  # ms
-        size_time = int(metrics['total_size'] * 500)  # 500ms per MB
-        request_time = (metrics['html_count'] + metrics['css_count'] + 
-                       metrics['js_count'] + metrics['image_count']) * 50  # 50ms per request
+        """Estimate page load time based on file sizes"""
+        # Very rough estimate: 1MB ≈ 500ms (assuming 2Mbps connection)
+        base_time = int(metrics['total_size'] * 500)
         
-        return base_time + size_time + request_time
+        # Add overhead for number of requests
+        request_overhead = (metrics['html_count'] + metrics['css_count'] + 
+                           metrics['js_count'] + metrics['image_count']) * 50
+        
+        return base_time + request_overhead
     
     def _generate_recommendations(self, metrics: Dict) -> list:
         """Generate performance recommendations"""
         recommendations = []
         
-        # Load time recommendations
-        if metrics['load_time'] > self.config.LOAD_TIME_WARNING:
+        if metrics['load_time'] > 3000:
             recommendations.append({
-                'severity': 'HIGH',
-                'message': f"Load time is {metrics['load_time']}ms (warning: {self.config.LOAD_TIME_WARNING}ms)",
-                'suggestions': [
-                    'Minify CSS and JavaScript files',
-                    'Compress and optimize images (use WebP format)',
-                    'Enable browser caching',
-                    'Consider lazy loading for images'
-                ]
+                'severity': 'warning',
+                'message': f"⚠️ Slow load time ({metrics['load_time']}ms). Consider optimizing images and minifying CSS/JS."
             })
         
-        # DOM complexity
-        if metrics['dom_count'] > self.config.DOM_COUNT_WARNING:
+        if metrics['image_size'] > 10:
             recommendations.append({
-                'severity': 'MEDIUM',
-                'message': f"DOM has {metrics['dom_count']} elements (warning: {self.config.DOM_COUNT_WARNING})",
-                'suggestions': [
-                    'Simplify HTML structure',
-                    'Remove unnecessary nested divs',
-                    'Consider virtual scrolling for dynamic content'
-                ]
+                'severity': 'warning',
+                'message': f"🖼️ Large images ({metrics['image_size']:.2f}MB). Use WebP or compress images."
             })
         
-        # Image size
-        if metrics['image_size'] > self.config.IMAGE_SIZE_WARNING:
+        if metrics['dom_count'] > 1500:
             recommendations.append({
-                'severity': 'MEDIUM',
-                'message': f"Total image size is {metrics['image_size']:.2f}MB",
-                'suggestions': [
-                    'Use modern image formats (WebP, AVIF)',
-                    'Compress images using TinyPNG or similar',
-                    'Use responsive images (srcset)',
-                    'Consider using SVG for icons'
-                ]
+                'severity': 'warning',
+                'message': f"📊 High DOM complexity ({metrics['dom_count']} elements). Simplify HTML structure."
             })
         
-        # CSS files
-        if metrics['css_count'] > 3:
+        if metrics['css_count'] > 5:
             recommendations.append({
-                'severity': 'LOW',
-                'message': f"Found {metrics['css_count']} CSS files",
-                'suggestions': [
-                    'Consolidate CSS files to reduce requests',
-                    'Remove unused CSS rules'
-                ]
+                'severity': 'info',
+                'message': f"📋 Multiple CSS files ({metrics['css_count']}). Consider consolidating."
             })
         
-        # JS files
         if metrics['js_count'] > 5:
             recommendations.append({
-                'severity': 'LOW',
-                'message': f"Found {metrics['js_count']} JavaScript files",
-                'suggestions': [
-                    'Consolidate or split strategically',
-                    'Use code splitting for large applications',
-                    'Defer non-critical JavaScript'
-                ]
+                'severity': 'info',
+                'message': f"✨ Multiple JS files ({metrics['js_count']}). Consider bundling."
             })
         
         if not recommendations:
             recommendations.append({
-                'severity': 'INFO',
-                'message': 'Performance is good!',
-                'suggestions': ['Continue monitoring for regressions']
+                'severity': 'success',
+                'message': "✅ Performance looks good!"
             })
         
         return recommendations

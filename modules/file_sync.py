@@ -1,160 +1,115 @@
 """
-File Sync Module - Handles file synchronization to remote servers
+File Sync Module - Synchronizes files between local and remote
 """
 
+import os
+import shutil
 from pathlib import Path
 from typing import Dict, List
 from datetime import datetime
-import json
 
 class FileSync:
     def __init__(self, config):
         self.config = config
-        self.config_file = Path("config/remote.conf")
     
-    def sync_to_remote(self, args) -> Dict:
-        """Sync local files to remote server"""
-        # Validate remote settings
-        host = args.remote_host or self.config.REMOTE_HOST
-        user = args.remote_user or self.config.REMOTE_USER
-        path = args.remote_path or self.config.REMOTE_PATH
+    def sync(self, site: str, direction: str = "local_to_remote"):
+        """Sync files between local and remote"""
+        site_path = self.config.SITE_PATHS[site]
         
-        if not host:
-            return {'success': False, 'error': 'Remote host not specified'}
-        
-        try:
-            # Detect changes
-            changes = self._detect_changes()
-            
-            # In production, would use paramiko for SFTP or ftplib
-            # For now, log the sync operation
-            result = self._sync_local_to_remote(host, user, path, changes)
-            
-            return {
-                'success': True,
-                'message': f"Synced {len(changes)} files to {host}:{path}",
-                'changes': changes
-            }
-        except Exception as e:
-            return {'success': False, 'error': str(e)}
+        if direction == "local_to_remote":
+            return self._sync_local_to_remote(site, site_path)
+        else:
+            return self._sync_remote_to_local(site, site_path)
     
-    def sync_from_remote(self, args) -> Dict:
+    def _sync_local_to_remote(self, site: str, local_path: Path) -> Dict:
+        """Sync local files to remote"""
+        # This is a placeholder - in production you'd use SFTP/FTP/SSH
+        results = {
+            'site': site,
+            'direction': 'local_to_remote',
+            'files_synced': 0,
+            'errors': []
+        }
+        
+        # For now, create a sync log
+        log_file = Path("logs") / f"sync_{site}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        log_file.parent.mkdir(exist_ok=True)
+        
+        files = list(local_path.glob('**/*'))
+        
+        with open(log_file, 'w') as f:
+            f.write(f"Sync Log: {site} (local -> remote)\n")
+            f.write(f"Date: {datetime.now()}\n")
+            f.write("=" * 60 + "\n\n")
+            
+            for file in files:
+                if file.is_file():
+                    f.write(f"✅ {file.relative_to(local_path)}\n")
+                    results['files_synced'] += 1
+        
+        return results
+    
+    def _sync_remote_to_local(self, site: str, local_path: Path) -> Dict:
         """Sync remote files to local"""
-        host = args.remote_host or self.config.REMOTE_HOST
-        user = args.remote_user or self.config.REMOTE_USER
-        path = args.remote_path or self.config.REMOTE_PATH
+        results = {
+            'site': site,
+            'direction': 'remote_to_local',
+            'files_synced': 0,
+            'errors': []
+        }
         
-        if not host:
-            return {'success': False, 'error': 'Remote host not specified'}
+        # This is a placeholder for remote sync
+        # In production, implement FTP/SFTP/SSH here
         
-        try:
-            result = self._sync_remote_to_local(host, user, path)
-            return {
-                'success': True,
-                'message': f"Synced files from {host}:{path}",
-                'files': result
-            }
-        except Exception as e:
-            return {'success': False, 'error': str(e)}
+        return results
     
-    def _detect_changes(self) -> List[str]:
+    def upload_file(self, file_path: Path, remote_path: str):
+        """Upload a single file to remote"""
+        # Placeholder for single file upload
+        # Implement FTP/SFTP upload here
+        pass
+    
+    def download_file(self, remote_path: str, local_path: Path):
+        """Download a single file from remote"""
+        # Placeholder for single file download
+        # Implement FTP/SFTP download here
+        pass
+    
+    def detect_changes(self, site: str) -> List[Path]:
         """Detect which files have changed since last sync"""
-        sync_marker = self.config.LOG_DIR / ".last_sync"
+        site_path = self.config.SITE_PATHS[site]
+        sync_file = Path("logs") / f".sync_{site}"
+        
         changed_files = []
         
-        try:
-            last_sync = sync_marker.stat().st_mtime if sync_marker.exists() else 0
-        except:
-            last_sync = 0
+        if sync_file.exists():
+            with open(sync_file, 'r') as f:
+                last_sync_time = float(f.read())
+        else:
+            last_sync_time = 0
         
-        # Check all sites for changes
-        for site_name in self.config.SITES:
-            site_path = self.config.SITE_PATHS[site_name]
-            
-            for file in site_path.rglob('*'):
-                if file.is_file():
-                    try:
-                        mtime = file.stat().st_mtime
-                        if mtime > last_sync:
-                            changed_files.append(str(file.relative_to(site_path.parent)))
-                    except:
-                        pass
+        for file in site_path.glob('**/*'):
+            if file.is_file():
+                if file.stat().st_mtime > last_sync_time:
+                    changed_files.append(file)
         
         return changed_files
     
-    def _sync_local_to_remote(self, host: str, user: str, path: str, files: List[str]) -> Dict:
-        """Sync local files to remote server"""
-        # Placeholder for FTP/SFTP implementation
-        # In production, would use:
-        # from paramiko import SSHClient
-        # or from ftplib import FTP
-        
-        sync_log = {
-            'timestamp': datetime.now().isoformat(),
-            'direction': 'local_to_remote',
+    def setup_remote_config(self, host: str, username: str, password: str, port: int = 22):
+        """Configure remote connection details"""
+        config = {
             'host': host,
-            'user': user,
-            'path': path,
-            'files_synced': len(files),
-            'files': files
-        }
-        
-        # Log the sync operation
-        log_file = self.config.LOG_DIR / f"sync_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-        with open(log_file, 'w') as f:
-            json.dump(sync_log, f, indent=2)
-        
-        # Update sync marker
-        sync_marker = self.config.LOG_DIR / ".last_sync"
-        sync_marker.touch()
-        
-        return {
-            'logged': True,
-            'files': files
-        }
-    
-    def _sync_remote_to_local(self, host: str, user: str, path: str) -> List[str]:
-        """Sync remote files to local"""
-        # Placeholder for FTP/SFTP implementation
-        
-        sync_log = {
-            'timestamp': datetime.now().isoformat(),
-            'direction': 'remote_to_local',
-            'host': host,
-            'user': user,
-            'path': path,
-            'status': 'DEMO_MODE'
-        }
-        
-        # Log the operation
-        log_file = self.config.LOG_DIR / f"sync_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-        with open(log_file, 'w') as f:
-            json.dump(sync_log, f, indent=2)
-        
-        return []
-    
-    def setup_remote_config(self, host: str, user: str, password: str = None, path: str = None, port: int = 22) -> Dict:
-        """Setup remote server configuration"""
-        self.config_file.parent.mkdir(exist_ok=True)
-        
-        config_data = {
-            'host': host,
-            'user': user,
-            'path': path or '/var/www/html',
+            'username': username,
+            'password': password,
             'port': port,
-            'last_updated': datetime.now().isoformat()
+            'type': 'ssh'
         }
         
-        try:
-            with open(self.config_file, 'w') as f:
-                json.dump(config_data, f, indent=2)
-            
-            return {
-                'success': True,
-                'message': f"Remote config saved for {user}@{host}:{path}"
-            }
-        except Exception as e:
-            return {
-                'success': False,
-                'error': str(e)
-            }
+        # Save to config (encrypted in production)
+        config_file = Path("config/remote.conf")
+        config_file.parent.mkdir(exist_ok=True)
+        
+        # This is a placeholder - use encryption in production
+        with open(config_file, 'w') as f:
+            import json
+            json.dump(config, f)

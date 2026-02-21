@@ -23,22 +23,19 @@ class LinkChecker:
             'total': 0,
             'broken': [],
             'external': [],
-            'valid': [],
-            'anchors': []
+            'valid': []
         }
         
         links = self._extract_links(site_path)
         results['total'] = len(links)
         
         for link in links:
-            status = self._check_link(link, site_path)
+            status = self._check_link(link)
             
             if status['type'] == 'broken':
                 results['broken'].append(status)
             elif status['type'] == 'external':
                 results['external'].append(status)
-            elif status['type'] == 'anchor':
-                results['anchors'].append(status)
             else:
                 results['valid'].append(status)
         
@@ -56,14 +53,14 @@ class LinkChecker:
                     
                     for tag in soup.find_all(['a', 'script', 'link', 'img']):
                         href = tag.get('href') or tag.get('src')
-                        if href and href.strip():
+                        if href:
                             links.add(href)
             except Exception as e:
                 pass
         
         return list(links)
     
-    def _check_link(self, url: str, site_path: Path) -> Dict:
+    def _check_link(self, url: str) -> Dict:
         """Check if a link is valid"""
         # Skip anchors
         if url.startswith('#'):
@@ -73,39 +70,29 @@ class LinkChecker:
         if url.startswith('javascript:'):
             return {'url': url, 'type': 'javascript', 'status': 200}
         
-        # Skip mailto
-        if url.startswith('mailto:'):
-            return {'url': url, 'type': 'mailto', 'status': 200}
-        
         # External links
         if url.startswith('http'):
             try:
-                response = self.session.head(url, timeout=self.config.LINK_TIMEOUT, allow_redirects=True)
+                response = self.session.head(url, timeout=5, allow_redirects=True)
                 return {
                     'url': url,
-                    'type': 'external' if response.status_code < 400 else 'broken',
+                    'type': 'external',
                     'status': response.status_code,
                     'valid': response.status_code < 400
                 }
             except Exception as e:
-                return {'url': url, 'type': 'broken', 'status': 'ERROR', 'error': str(e), 'valid': False}
+                return {'url': url, 'type': 'external', 'status': 'ERROR', 'error': str(e), 'valid': False}
         
         # Internal links
         if url.startswith('/'):
             url = '.' + url
         
-        # Handle relative paths
-        full_path = (site_path / url).resolve()
-        
-        # Check if file exists
-        try:
-            exists = full_path.exists()
-        except:
-            exists = False
+        path = Path(url)
+        exists = path.exists()
         
         return {
             'url': url,
-            'type': 'valid' if exists else 'broken',
-            'status': 200 if exists else 404,
+            'type': 'broken' if not exists else 'valid',
+            'status': 404 if not exists else 200,
             'exists': exists
         }
