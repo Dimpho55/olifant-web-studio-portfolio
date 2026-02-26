@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - NEWLY SLY</title>
+    <link rel="stylesheet" href="../assets/css/newly-sly.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-star"></i> NEWLY SLY
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html" class="cart-link active"><i class="fas fa-shopping-bag"></i> Cart <span class="cart-count">0</span></a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+
+            <div class="cart-wrapper">
+                <div class="cart-items-container">
+                    <div id="cartItems" class="cart-items">
+                        <!-- Cart items loaded by JavaScript -->
+                    </div>
+                    <div id="emptyCartMessage" class="empty-cart-message" style="display: none;">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h2>Your cart is empty</h2>
+                        <p>Continue shopping to add items to your cart</p>
+                        <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <aside class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-line">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Shipping:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Tax:</span>
+                        <span id="tax">$0.00</span>
+                    </div>
+                    <div class="summary-line total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary full-width" id="checkoutBtn">Proceed to Checkout</button>
+                    <a href="shop.html" class="btn btn-secondary full-width">Continue Shopping</a>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>NEWLY SLY is your go-to destination for premium street wear fashion.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-bottom">&copy; 2024 NEWLY SLY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/newly-sly.js"></script>
+</body>
+</html>
