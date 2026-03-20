@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - NEWLY SLY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-placeholder">NEWLY SLY</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">
+                    <i class="fas fa-shopping-cart cart-icon"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Checkout Hero -->
+<section class="hero" style="margin-top: 60px; min-height: 40vh;">
+    <div class="hero-content">
+        <h1>Checkout</h1>
+        <p>Complete Your Order</p>
+    </div>
+</section>
+
+<!-- Checkout Section -->
+<section class="section">
+    <div class="container" style="max-width: 1000px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <!-- Checkout Form -->
+            <div>
+                <h2 style="margin-bottom: 30px; color: var(--text-light);">Shipping Information</h2>
+                <form class="checkout-form" onsubmit="submitCheckout(event)">
+                    <div class="form-group">
+                        <label for="fullname">Full Name *</label>
+                        <input type="text" id="fullname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address *</label>
+                        <input type="text" id="address" placeholder="Street address, city, postal code" required>
+                    </div>
+
+                    <h3 style="margin-top: 40px; margin-bottom: 30px; color: var(--text-light);">Payment Method</h3>
+                    
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <input type="radio" name="payment" value="creditcard" checked style="width: 20px; height: 20px; cursor: pointer;">
+                            <span>Credit / Debit Card</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                            <input type="radio" name="payment" value="transfer" style="width: 20px; height: 20px; cursor: pointer;">
+                            <span>Bank Transfer</span>
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 10px;">
+                            <input type="radio" name="payment" value="cash" style="width: 20px; height: 20px; cursor: pointer;">
+                            <span>Cash on Delivery</span>
+                        </label>
+                    </div>
+
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--accent-lime);">
+                        <label style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                            <input type="checkbox" required style="width: 20px; height: 20px; cursor: pointer;">
+                            <span>I agree to the terms and conditions</span>
+                        </label>
+                        <button type="submit" class="btn" style="width: 100%;">Complete Purchase</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div>
+                <h2 style="margin-bottom: 30px; color: var(--text-light);">Order Summary</h2>
+                <div class="checkout-summary" style="background: var(--secondary-dark); border: 2px solid var(--accent-lime); border-radius: 8px; padding: 30px;">
+                    <!-- Summary will be loaded by JavaScript -->
+                </div>
+
+                <!-- Security Trust Badges -->
+                <div style="margin-top: 40px; padding: 20px; background: rgba(53, 182, 125, 0.1); border-left: 3px solid var(--accent-lime); border-radius: 5px;">
+                    <p style="margin-bottom: 10px; font-weight: bold; color: var(--accent-lime);">🔒 Secure Checkout</p>
+                    <p style="font-size: 0.9rem;">Your payment information is encrypted and secure. We process payments through trusted payment gateways.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 10px;">&copy; 2026 NEWLY SLY. All rights reserved.</p>
+        <p>Powered by <a href="../index.html">Olifant Web Studio</a></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // Initialize checkout page
+    document.addEventListener('DOMContentLoaded', function() {
+        displayCheckoutSummary();
+    });
+</script>
+</body>
+</html>

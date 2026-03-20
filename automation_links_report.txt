@@ -1,0 +1,39 @@
+﻿python.exe : Traceback (most recent call last):
+At line:1 char:1
++ & 'c:/Users/user/Olifant Web Studio/.venv/Scripts/python.exe' automat ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last) 
+   ::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\user\Olifant Web Studio\automate.py", line 34, in log
+    print(log_msg)
+    ~~~~~^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.
+3312.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f517' in 
+position 29: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\Olifant Web Studio\automate.py", line 267, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\user\Olifant Web Studio\automate.py", line 252, in main
+    automation.scan_links(args)
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\user\Olifant Web Studio\automate.py", line 43, in scan_links
+    self.log("\U0001f517 Starting link integrity scan", "INFO")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Olifant Web Studio\automate.py", line 37, in log
+    print(safe)
+    ~~~~~^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.13_3.13.
+3312.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\U0001f517' in 
+position 29: character maps to <undefined>

@@ -1,56 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>REGCORP PTY LTD</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGCORP PTY LTD - Tech & F&B Solutions</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+<!-- Navigation -->
 <nav class="navbar">
-    <div class="logo">
-        <a href="index.html"><img src="images/regcorp-logo.png" alt="REGCORP Logo"></a>
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <div class="logo-placeholder">REGCORP</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </div>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
 </nav>
 
+<!-- Hero Section -->
 <section class="hero">
-    <h1>Professional Business Solutions</h1>
-    <p>Driving Growth Through Strategy & Innovation</p>
-</section>
-
-<section class="content">
-    <h2>Welcome to REGCORP</h2>
-    <p>REGCORP PTY LTD is a South African multi-discipline company committed to delivering world-class technology services and solutions. Since 2015, we have been driving innovation, creating employment opportunities, and contributing to economic growth across all nine provinces in South Africa.</p>
-
-    <h2>What We Do</h2>
-    <p>We specialize in:</p>
-    <ul>
-        <li>IT Technical Support Services</li>
-        <li>IT Consumables & Equipment Supply</li>
-        <li>Food & Beverages Distribution</li>
-        <li>Personal Protective Equipment (PPE) Supply</li>
-    </ul>
-
-    <h2>Our Commitment</h2>
-    <p>We pride ourselves on employing highly skilled personnel and delivering projects on time while transferring knowledge to the communities we serve. Our vision is to provide Turnkey Technology services that exceed client expectations and create lasting value.</p>
-
-    <div style="margin-top: 40px;">
-        <a href="about.html" class="btn">Learn More About Us</a>
-        <a href="services.html" class="btn">View Our Services</a>
-        <a href="contact.html" class="btn">Contact Us</a>
+    <div class="hero-content">
+        <h1 class="fade-in">REGCORP PTY LTD</h1>
+        <p class="fade-in" style="animation-delay: 0.2s;">South African Multi-Discipline Technology & F&B Solutions</p>
+        <a href="about.html" class="btn btn-gold fade-in" style="animation-delay: 0.4s;">Learn More</a>
     </div>
 </section>
 
-<footer>
-    <p>© 2026 REGCORP PTY LTD</p>
+<!-- Highlights -->
+<section class="highlights">
+    <div class="container">
+        <div class="highlights-wrapper">
+            <div class="highlight-card">
+                <i class="fas fa-globe"></i>
+                <h3>National Presence</h3>
+                <p>Operating across all 9 provinces in South Africa</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Tech & F&B</h3>
+                <p>Comprehensive IT and Food & Beverages solutions</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-users"></i>
+                <h3>Community Impact</h3>
+                <p>Creating opportunities in disadvantaged communities</p>
+            </div>
+            <div class="highlight-card">
+                <i class="fas fa-award"></i>
+                <h3>Expert Team</h3>
+                <p>Highly skilled personnel with proven business acumen</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta">
+    <div class="container">
+        <h2>Ready to Partner with REGCORP?</h2>
+        <p>Let's discuss how we can serve your business needs.</p>
+        <a href="contact.html" class="btn btn-gold">Get In Touch</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 REGCORP PTY LTD. All rights reserved.</p>
+        <p>Powered by <a href="../index.html">Olifant Web Studio</a></p>
+    </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
