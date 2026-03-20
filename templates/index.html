@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Website Development</h1>
+        <p>Professional. Modern. Powerful.</p>
+        <a href="/contact" class="btn">Get Started</a>
+    </div>
+</section>
+
+<section class="slider">
+    <div class="slides">
+        <img src="{{ url_for('static', filename='images/project1.jpg') }}">
+        <img src="{{ url_for('static', filename='images/project2.jpg') }}">
+        <img src="{{ url_for('static', filename='images/project3.jpg') }}">
+    </div>
+</section>
+
+<section class="info">
+    <h2>Why Choose Olifant Web Studio?</h2>
+    <p>Founded in 2025, we specialize in high-end websites that build trust, increase sales, and deliver exceptional customer experience.</p>
+</section>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="page">
+    <h1>About Us</h1>
+    <p>Olifant Web Studio was founded in 2025 with one mission: build premium websites that compete globally.</p>
+
+    <div class="image-grid">
+        <img src="{{ url_for('static', filename='images/hero.jpg') }}">
+        <img src="{{ url_for('static', filename='images/project1.jpg') }}">
+    </div>
+</section>
+
+{% endblock %}
