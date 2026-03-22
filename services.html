@@ -1,55 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services — Olifant Web Studio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="theme.css">
-</head>
-<body>
-
-<nav class="navbar">
-    <div class="logo">
-        <a href="index.html" class="logo-text">Olifant Web Studio</a>
-    </div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#portfolio">Portfolio</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-        <li><a href="index.html" class="back-link">← Back to Olifant</a></li>
-    </ul>
-</nav>
-
-<main>
-<section id="services" class="services">
-    <div class="container">
-        <h2>Our Expertise</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Business Websites</h3>
-                <p>Professional websites built to grow your brand.</p>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Services - Olifant Web Studio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <i class="fas fa-elephant"></i> Olifant Web Studio
+                    </div>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>E-Commerce Stores</h3>
-                <p>High-converting online stores with secure checkout.</p>
-            </div>
-            <div class="service-card">
-                <h3>Dynamic Platforms</h3>
-                <p>Advanced systems & web applications tailored to your needs.</p>
-            </div>
-        </div>
-    </div>
-</section>
-</main>
+        </nav>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2026 Olifant Web Studio. All rights reserved.</p>
-        <p class="developer-credit">All websites designed and developed by <strong>Dimpho Olifant</strong></p>
-    </div>
-</footer>
+        <section class="page-header">
+            <h1>Our Services</h1>
+        </section>
 
-<script src="script.js"></script>
-</body>
-</html>
+        <section class="services-details">
+            <div class="container">
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-code"></i></div>
+                    <h3>Web Development</h3>
+                    <p>Custom websites built from scratch using modern HTML, CSS, JavaScript, and frameworks like React and Vue.js. We create websites that are fast, secure, and scalable.</p>
+                </div>
+
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Complete online store solutions with product catalogs, shopping carts, secure payment processing, inventory management, and order tracking systems.</p>
+                </div>
+
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach ensuring your website looks perfect on all devices. From smartphones to desktops, your site will provide an optimal user experience.</p>
+                </div>
+
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-rocket"></i></div>
+                    <h3>Performance Optimization</h3>
+                    <p>SEO optimization, fast page load times, and advanced analytics. We ensure your website ranks well in search engines and converts visitors into customers.</p>
+                </div>
+
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-cogs"></i></div>
+                    <h3>Dynamic & Platform Websites</h3>
+                    <p>Complex web applications with database integration, user authentication, real-time data updates, and custom functionality tailored to your business needs.</p>
+                </div>
+
+                <div class="service-details-card">
+                    <div class="service-icon-large"><i class="fas fa-headset"></i></div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing support, updates, security patches, and performance monitoring. We keep your website running smoothly long after launch.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2024 Olifant Web Studio. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+    </html>

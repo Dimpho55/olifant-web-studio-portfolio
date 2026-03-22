@@ -31,7 +31,7 @@ class WebsiteAutomation:
         """Log messages to file and console"""
         log_msg = f"[{self.timestamp}] [{level}] {message}"
         print(log_msg)
-        with open(self.log_file, 'a') as f:
+        with open(self.log_file, 'a', encoding='utf-8') as f:
             f.write(log_msg + '\n')
     
     def scan_links(self, args):
