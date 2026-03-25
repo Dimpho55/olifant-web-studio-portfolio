@@ -7,67 +7,67 @@ let cart = JSON.parse(localStorage.getItem('newlysly-cart')) || [];
 const products = [
     {
         id: 1,
-        name: 'Urban Tee',
+        name: 'White Tee',
         price: 299,
         category: 'shirts',
         rating: '⭐⭐⭐⭐⭐ (21 reviews)',
-        icon: '👕'
+        image: 'images/newlysly-tee-white.png'
     },
     {
         id: 2,
-        name: 'Street Hoodie',
-        price: 499,
-        category: 'hoodies',
+        name: 'Tie Dye Tee',
+        price: 299,
+        category: 'shirts',
         rating: '⭐⭐⭐⭐⭐ (18 reviews)',
-        icon: '🧥'
+        image: 'images/newlysly-tee-tyedye.png'
     },
     {
         id: 3,
-        name: 'Cargo Pants',
-        price: 599,
-        category: 'pants',
-        rating: '⭐⭐⭐⭐ (15 reviews)',
-        icon: '👖'
+        name: 'Orange Hoodie',
+        price: 499,
+        category: 'hoodies',
+        rating: '⭐⭐⭐⭐⭐ (25 reviews)',
+        image: 'images/newlysly-hoodie-orange.png'
     },
     {
         id: 4,
-        name: 'Sneaker High',
-        price: 799,
-        category: 'shoes',
-        rating: '⭐⭐⭐⭐⭐ (32 reviews)',
-        icon: '👟'
+        name: 'Black Hoodie',
+        price: 499,
+        category: 'hoodies',
+        rating: '⭐⭐⭐⭐⭐ (22 reviews)',
+        image: 'images/newlysly-hoodie-black.png'
     },
     {
         id: 5,
-        name: 'Bucket Hat',
-        price: 199,
-        category: 'accessories',
-        rating: '⭐⭐⭐⭐ (12 reviews)',
-        icon: '🎩'
+        name: 'Denim Pants',
+        price: 599,
+        category: 'pants',
+        rating: '⭐⭐⭐⭐ (19 reviews)',
+        image: 'images/newlysly-denim-black.png'
     },
     {
         id: 6,
-        name: 'Chain Necklace',
-        price: 249,
-        category: 'accessories',
-        rating: '⭐⭐⭐⭐⭐ (8 reviews)',
-        icon: '⛓️'
+        name: 'Purple Sweatpants',
+        price: 549,
+        category: 'pants',
+        rating: '⭐⭐⭐⭐⭐ (16 reviews)',
+        image: 'images/newlysly-sweatpants-purple.png'
     },
     {
         id: 7,
-        name: 'Backpack Pro',
-        price: 449,
-        category: 'bags',
-        rating: '⭐⭐⭐⭐⭐ (24 reviews)',
-        icon: '🎒'
+        name: 'Classic Beanie',
+        price: 199,
+        category: 'accessories',
+        rating: '⭐⭐⭐⭐ (14 reviews)',
+        image: 'images/newlysly-beanie.png'
     },
     {
         id: 8,
-        name: 'Sunglasses',
-        price: 349,
+        name: 'Black Beanie',
+        price: 199,
         category: 'accessories',
-        rating: '⭐⭐⭐⭐ (10 reviews)',
-        icon: '😎'
+        rating: '⭐⭐⭐⭐⭐ (20 reviews)',
+        image: 'images/newlysly-beanie-black.png'
     }
 ];
 
@@ -120,7 +120,7 @@ function renderProducts(filter = 'all') {
         productCard.className = 'product-card';
         productCard.innerHTML = `
             <div class="product-image">
-                <i style="font-size: 3rem;">${product.icon}</i>
+                <img src="${product.image}" alt="${product.name}" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px;">
             </div>
             <div class="product-info">
                 <h3>${product.name}</h3>
