@@ -2,102 +2,447 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Olifant Web Studio - Web Development Services</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olifant Web Studio - Premium Web Development Agency</title>
+    <meta name="description" content="Award-winning web development agency specializing in modern, high-performance websites and digital experiences. Transform your business with cutting-edge technology.">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Glassmorphism Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#hero">
+                    <img src="images/olifant-web-studio-logo.png" alt="Olifant Web Studio" class="logo-img">
+                </a>
+            </div>
 
-<nav class="navbar">
-    <div class="logo">
-        <a href="index.html"><img src="images/olifant-web-studio-logo.png" alt="Olifant Logo"></a>
-    </div>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+            <div class="nav-menu">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="cta-nav">Get Started</a>
+            </div>
 
-<section class="hero" id="hero">
-    <div class="slideshow-container">
-        <div class="slide fade">
-            <div class="slide-image" style="background: linear-gradient(135deg, rgba(0,245,212,0.1), rgba(30,30,50,0.9)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97') center/cover;"></div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <div class="slide fade">
-            <div class="slide-image" style="background: linear-gradient(135deg, rgba(0,245,212,0.1), rgba(30,30,50,0.9)), url('https://images.unsplash.com/photo-1498050108023-c5249f4df085') center/cover;"></div>
-        </div>
-        <div class="slide fade">
-            <div class="slide-image" style="background: linear-gradient(135deg, rgba(0,245,212,0.1), rgba(30,30,50,0.9)), url('https://images.unsplash.com/photo-1460925895917-adf4e565411f') center/cover;"></div>
-        </div>
-        <div class="slide fade">
-            <div class="slide-image" style="background: linear-gradient(135deg, rgba(0,245,212,0.1), rgba(30,30,50,0.9)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d') center/cover;"></div>
-        </div>
-    </div>
+    </nav>
 
-    <div class="hero-content">
-        <h1>We Build High-Performance Digital Experiences</h1>
-        <p>Modern. Powerful. Scalable.</p>
-        <a href="#portfolio" class="btn btn-primary">View Our Work</a>
-    </div>
-</section>
-
-<section id="about" class="about">
-    <h2>About Olifant Web Studio</h2>
-    <div class="about-content">
-        <p>Olifant Web Studio is a forward-thinking web development agency dedicated to creating outstanding digital solutions that drive business growth. We specialize in building responsive, high-performance websites and web applications that combine aesthetic design with cutting-edge technology.</p>
-        
-        <h3>Our Approach</h3>
-        <p>We believe in a collaborative partnership with our clients. Every project is unique, and we take the time to understand your business goals, target audience, and vision. From concept to deployment, we maintain open communication and deliver solutions that exceed expectations.</p>
-
-        <h3>Why Choose Us?</h3>
-        <ul class="benefits-list">
-            <li><strong>Expert Team:</strong> Skilled developers and designers with years of industry experience</li>
-            <li><strong>Custom Solutions:</strong> Tailored websites built specifically for your business needs</li>
-            <li><strong>Performance Focused:</strong> Fast, optimized sites that rank well in search engines</li>
-            <li><strong>Responsive Design:</strong> Beautiful on all devices—desktop, tablet, and mobile</li>
-            <li><strong>Ongoing Support:</strong> Continuous maintenance and updates to keep your site secure and current</li>
-        </ul>
-    </div>
-</section>
-
-<section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="service-grid">
-        <div class="service-card">
-            <h3>Business Websites</h3>
-            <p>Professional, modern websites designed to showcase your brand and convert visitors into customers. We build fast, SEO-optimized sites that establish your online presence.</p>
-        </div>
-        <div class="service-card">
-            <h3>E-Commerce Stores</h3>
-            <p>High-converting online stores with secure payment processing, inventory management, and seamless user experience. Perfect for businesses looking to sell online.</p>
-        </div>
-        <div class="service-card">
-            <h3>Dynamic Web Applications</h3>
-            <p>Advanced systems and custom web applications tailored to your specific business requirements. From internal tools to customer-facing platforms, we build scalable solutions.</p>
-        </div>
-        <div class="service-card">
-            <h3>Web Maintenance & Support</h3>
-            <p>Ongoing support, updates, and security maintenance to keep your website running smoothly. We handle backups, performance monitoring, and regular optimization.</p>
-        </div>
-    </div>
-</section>
-
-<section id="portfolio" class="portfolio">
-    <h2>Featured Projects</h2>
-    <p class="portfolio-intro">Explore the websites we've developed that deliver results for our clients.</p>
-
-    <div class="portfolio-grid">
-        <div class="portfolio-card">
-            <h3>REGCORP PTY LTD</h3>
-            <p>A professional corporate website for a multi-discipline technology service company operating across South Africa. Built with responsive design and comprehensive service information.</p>
-            <a href="regcorp/index.html" target="_blank" class="btn btn-secondary">Visit Site</a>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
         </div>
 
-        <div class="portfolio-card">
-            <h3>NEWLY SLY</h3>
-            <p>A streetwear e-commerce brand website featuring product showcase, shopping cart, and checkout functionality. Modern design with seamless user experience.</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="hero-title-main">We Build</span>
+                    <span class="hero-title-accent">Digital Experiences</span>
+                    <span class="hero-title-sub">That Drive Results</span>
+                </h1>
+
+                <p class="hero-description">
+                    Premium web development agency crafting modern, high-performance websites that convert visitors into customers. From concept to launch, we deliver exceptional digital solutions.
+                </p>
+
+                <div class="hero-ctas">
+                    <a href="#portfolio" class="btn btn-primary">
+                        <span>View Our Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Start Your Project</span>
+                        <i class="fas fa-rocket"></i>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Client Satisfaction</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-mockup">
+                    <div class="mockup-screen">
+                        <div class="mockup-content">
+                            <div class="mockup-header"></div>
+                            <div class="mockup-body"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Olifant</h2>
+                <p class="section-subtitle">We combine technical excellence with creative vision to deliver websites that not only look stunning but perform exceptionally.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Expert Craftsmanship</h3>
+                        <p>Our team of seasoned developers and designers brings years of experience in creating digital solutions that drive business growth. We stay ahead of industry trends and technologies.</p>
+
+                        <h3>Client-Centric Approach</h3>
+                        <p>Every project begins with understanding your unique business goals. We work collaboratively, maintaining transparent communication throughout the development process.</p>
+
+                        <h3>Performance First</h3>
+                        <p>Speed, security, and scalability are at the core of everything we build. Our websites load fast, rank well in search engines, and provide exceptional user experiences.</p>
+                    </div>
+                </div>
+
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Lightning Fast</h4>
+                        <p>Optimized for speed with modern technologies</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Fully Responsive</h4>
+                        <p>Perfect on all devices and screen sizes</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Secure & Reliable</h4>
+                        <p>Built with security best practices</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Ongoing maintenance and support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive web development solutions tailored to your business needs</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business Websites</h3>
+                    <p>Professional, conversion-optimized websites that establish credibility and drive business growth. Custom designs that reflect your brand identity.</p>
+                    <ul class="service-features">
+                        <li>Custom Design & Branding</li>
+                        <li>SEO Optimization</li>
+                        <li>Contact Forms & Lead Generation</li>
+                        <li>Content Management System</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>E-Commerce Solutions</h3>
+                    <p>Full-featured online stores with secure payment processing, inventory management, and seamless shopping experiences.</p>
+                    <ul class="service-features">
+                        <li>Secure Payment Integration</li>
+                        <li>Inventory Management</li>
+                        <li>Order Processing</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Web Applications</h3>
+                    <p>Custom web applications and dynamic systems built with modern technologies for complex business requirements.</p>
+                    <ul class="service-features">
+                        <li>Custom Functionality</li>
+                        <li>Database Integration</li>
+                        <li>User Authentication</li>
+                        <li>API Development</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Ongoing website maintenance, updates, security monitoring, and technical support to keep your site running smoothly.</p>
+                    <ul class="service-features">
+                        <li>Security Updates</li>
+                        <li>Performance Monitoring</li>
+                        <li>Content Updates</li>
+                        <li>Technical Support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing our commitment to excellence and innovation</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="regcorp/index.html" target="_blank" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>REGCORP PTY LTD</h3>
+                        <p>Corporate website for a leading technology and F&B solutions company. Features comprehensive service information, modern design, and responsive layout.</p>
+                        <div class="portfolio-tags">
+                            <span>Corporate</span>
+                            <span>Business</span>
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="portfolio-image">
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-links">
+                                <a href="newlysly/index.html" target="_blank" class="portfolio-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>NEWLY SLY</h3>
+                        <p>E-commerce platform for a premium streetwear brand. Includes product catalog, shopping cart, secure checkout, and modern UI/UX design.</p>
+                        <div class="portfolio-tags">
+                            <span>E-Commerce</span>
+                            <span>Shopping Cart</span>
+                            <span>Modern UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">Ready to Start Your Project?</h2>
+                <p class="section-subtitle">Let's discuss how we can help transform your digital presence</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email Us</h4>
+                            <p>hello@olifantwebstudio.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Call Us</h4>
+                            <p>+27 (0) 000 000 0000</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Located</h4>
+                            <p>South Africa</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Business Hours</h4>
+                            <p>Mon-Fri: 9AM-6PM<br>Sat: By Appointment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm" class="form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company (Optional)</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="projectType">Project Type</label>
+                            <select id="projectType" name="projectType" required>
+                                <option value="">Select Project Type</option>
+                                <option value="business-website">Business Website</option>
+                                <option value="ecommerce">E-Commerce Store</option>
+                                <option value="web-app">Web Application</option>
+                                <option value="redesign">Website Redesign</option>
+                                <option value="maintenance">Maintenance & Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="budget">Budget Range</label>
+                            <select id="budget" name="budget">
+                                <option value="">Select Budget Range</option>
+                                <option value="under-5k">Under R5,000</option>
+                                <option value="5k-15k">R5,000 - R15,000</option>
+                                <option value="15k-30k">R15,000 - R30,000</option>
+                                <option value="30k-50k">R30,000 - R50,000</option>
+                                <option value="over-50k">Over R50,000</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/olifant-web-studio-logo.png" alt="Olifant Web Studio" class="logo-img">
+                    <p>Premium web development agency crafting digital experiences that drive results.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <a href="#services">Business Websites</a>
+                        <a href="#services">E-Commerce</a>
+                        <a href="#services">Web Applications</a>
+                        <a href="#services">Maintenance</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Olifant Web Studio. All rights reserved. | Made with <i class="fas fa-heart"></i> in South Africa</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
             <a href="newlysly/index.html" target="_blank" class="btn btn-secondary">Visit Store</a>
         </div>
     </div>
