@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NEWLY SLY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Contact NEWLY SLY - Urban Streetwear">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-wrapper">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="images/newlysly-logo.png" alt="NEWLY SLY Logo" style="max-height: 50px; width: auto;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="cart.html">
+                    <i class="fas fa-shopping-cart cart-icon"></i>
+                    <span class="cart-count">0</span>
+                </a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have questions about our products or need help with your order? We're here to help!</p>
+
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email Us</h4>
+                        <p>brucejnrolifant55@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Call Us</h4>
+                        <p>+27 (67) 408 2993</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Located</h4>
+                        <p>Seshego, South Africa</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Business Hours</h4>
+                        <p>Mon-Fri: 9AM-6PM<br>Sat: 10AM-4PM<br>Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" class="form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select Subject</option>
+                            <option value="order-inquiry">Order Inquiry</option>
+                            <option value="product-info">Product Information</option>
+                            <option value="returns">Returns & Exchanges</option>
+                            <option value="size-guide">Size Guide</option>
+                            <option value="shipping">Shipping Information</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="orderNumber">Order Number (Optional)</label>
+                        <input type="text" id="orderNumber" name="orderNumber">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p style="margin-bottom: 10px;">&copy; 2026 NEWLY SLY. All rights reserved.</p>
+        <p>Powered by <a href="../index.html">Olifant Web Studio</a></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

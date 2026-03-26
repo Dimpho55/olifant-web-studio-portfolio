@@ -99,6 +99,128 @@ document.addEventListener('DOMContentLoaded', function() {
         updateCartDisplay();
     }
 
+    // Initialize image slider
+    initializeImageSlider();
+
+    // Initialize contact form
+    initializeContactForm();
+});
+
+// Contact Form Functionality
+function initializeContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // Show loading state
+        submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('http://127.0.0.1:5000/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                // Show success message
+                submitBtn.innerHTML = '<span>Sent Successfully!</span><i class="fas fa-check"></i>';
+                submitBtn.style.background = '#10b981';
+                this.reset();
+
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error(result.message);
+            }
+        } catch (error) {
+            console.error('Contact form error:', error);
+            submitBtn.innerHTML = '<span>Failed to Send</span><i class="fas fa-exclamation-triangle"></i>';
+            submitBtn.style.background = '#ef4444';
+
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 3000);
+        }
+    });
+}
+
+// Image Slider Functionality
+function initializeImageSlider() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Auto slide every 4 seconds
+    setInterval(nextSlide, 4000);
+
+    // Start with first slide
+    showSlide(0);
+}
+
+// Image Slider Functionality
+function initializeImageSlider() {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length === 0) return;
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Auto slide every 4 seconds
+    setInterval(nextSlide, 4000);
+
+    // Start with first slide
+    showSlide(0);
+}
+
     // Update cart count in navbar
     updateCartCount();
 });

@@ -1,6 +1,14 @@
 from flask import Flask, jsonify, request, session, abort
 from flask_cors import CORS
 from datetime import timedelta
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
@@ -97,6 +105,79 @@ def delete_cart_item():
 def clear_cart():
     session['cart'] = []
     return jsonify({'cart': []})
+
+@app.route('/api/contact', methods=['POST'])
+def contact_form():
+    data = request.json
+    if not data:
+        abort(400, description='No data provided')
+
+    # Check if this is a NEWLY SLY contact form or main site form
+    is_newlysly = 'subject' in data
+
+    if is_newlysly:
+        # NEWLY SLY contact form validation
+        required_fields = ['firstName', 'lastName', 'email', 'subject', 'message']
+        for field in required_fields:
+            if field not in data or not data[field].strip():
+                abort(400, description=f'{field} is required')
+
+        # Create NEWLY SLY email
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = f"NEWLY SLY Contact - {data['subject']}"
+
+        body = f"""
+New contact form submission from NEWLY SLY website:
+
+Name: {data['firstName']} {data['lastName']}
+Email: {data['email']}
+Subject: {data['subject']}
+Order Number: {data.get('orderNumber', 'Not provided')}
+
+Message:
+{data['message']}
+"""
+    else:
+        # Main site contact form validation
+        required_fields = ['firstName', 'lastName', 'email', 'projectType', 'message']
+        for field in required_fields:
+            if field not in data or not data[field].strip():
+                abort(400, description=f'{field} is required')
+
+        # Create main site email
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = f"Olifant Web Studio Contact - {data['projectType']}"
+
+        body = f"""
+New contact form submission from Olifant Web Studio website:
+
+Name: {data['firstName']} {data['lastName']}
+Email: {data['email']}
+Company: {data.get('company', 'Not provided')}
+Project Type: {data['projectType']}
+Budget: {data.get('budget', 'Not specified')}
+
+Message:
+{data['message']}
+"""
+
+    msg.attach(MIMEText(body, 'plain'))
+
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        text = msg.as_string()
+        server.sendmail(sender_email, receiver_email, text)
+        server.quit()
+        return jsonify({'success': True, 'message': 'Email sent successfully'})
+    except Exception as e:
+        print(f"Email error: {e}")
+        return jsonify({'success': False, 'message': 'Failed to send email'}), 500
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)

@@ -231,6 +231,44 @@ body {
   border-radius: 1px;
 }
 
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+.nav-menu.active {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  padding: var(--space-6) 0;
+  gap: var(--space-4);
+  z-index: 999;
+}
+
+.nav-menu.active .nav-link {
+  padding: var(--space-3) var(--space-6);
+  border-radius: 0;
+  justify-content: center;
+}
+
+.nav-menu.active .cta-nav {
+  margin: var(--space-2) var(--space-6);
+  width: auto;
+}
+
 /* ===========================================
    HERO SECTION
    =========================================== */
@@ -307,6 +345,13 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 .hero-title-sub {

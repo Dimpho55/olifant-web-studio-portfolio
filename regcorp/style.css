@@ -110,6 +110,18 @@ body {
     transition: 0.3s;
 }
 
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -5px);
+}
+
 /* HERO */
 .hero {
     height: 100vh;
@@ -227,7 +239,105 @@ section {
     font-size: 0.95rem;
 }
 
+/* WAREHOUSE SECTION */
+.warehouse-section {
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(26, 26, 26, 0.95));
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 15px;
+    color: var(--accent-gold);
+    font-weight: bold;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.warehouse-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.warehouse-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(212, 175, 55, 0.02));
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+    height: 250px;
+}
+
+.warehouse-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+}
+
+.warehouse-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.8), rgba(26, 26, 26, 0.8));
+    position: relative;
+    overflow: hidden;
+}
+
+.warehouse-image i {
+    font-size: 4rem;
+    color: var(--accent-gold);
+    z-index: 2;
+    position: relative;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(10, 10, 10, 0.9));
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.warehouse-item:hover .image-overlay {
+    transform: translateY(0);
+}
+
+.image-overlay h4 {
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.image-overlay p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
 /* CTA */
+.cta {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+    text-align: center;
+    padding: 80px 0;
+    border-top: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+}
 .cta {
     background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
     text-align: center;

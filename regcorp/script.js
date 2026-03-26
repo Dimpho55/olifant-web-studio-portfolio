@@ -14,26 +14,23 @@ window.addEventListener('scroll', () => {
 
 // MOBILE MENU TOGGLE
 document.addEventListener('DOMContentLoaded', function(){
-    const navLinks = document.querySelector('.navbar .nav-links');
-    const navBar = document.querySelector('.navbar');
-    
-    // Create hamburger menu for mobile
-    if (window.innerWidth <= 768 && !document.querySelector('.hamburger')) {
-        const hamburger = document.createElement('button');
-        hamburger.classList.add('hamburger');
-        hamburger.innerHTML = '☰';
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-        navBar.appendChild(hamburger);
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
     }
-    
-    // Close menu when link is clicked
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
 });
 
 // SMOOTH SCROLL
